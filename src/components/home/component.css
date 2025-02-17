@@ -1,0 +1,121 @@
+/* Container for the films, ensures proper layout */
+.films-container {
+    display: flex;
+    justify-content: center;  /* Align films horizontally */
+    flex-wrap: wrap;  /* Allow films to wrap into multiple rows if needed */
+    gap: 20px;  /* Adds space between film boxes */
+    padding: 20px;
+  }
+  
+  /* Style for each individual film box */
+  .film-box {
+    cursor: pointer;
+    padding: 20px;
+    border: 3px solid #ddd;
+    border-radius: 10px;
+    width: 150px;
+    height: 150px;
+    text-align: center;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out;
+    
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    justify-content: center; /* Align title at the top and rental count at the bottom */
+    align-items: center;
+  }
+  
+  /* Hover effect to give a "clickable" feel */
+  .film-box:hover {
+    transform: translateY(-5px); /* Slightly lift the box */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+  }
+  
+  /* Style for film title */
+  .film-box h3 {
+    margin: 0;
+    font-size: 1.2em;
+    color: #333;
+  }
+  
+  /* Style for film rented count */
+  .film-box p {
+    margin: 5px 0 0;
+    font-size: 1em;
+    color: #666;
+  }
+  
+  .film-details-container {
+    display: flex;
+    justify-content: center; /* Centers content horizontally */
+    align-items: center; /* Centers content vertically */
+    width: 100%; /* Ensure it takes full width */
+    min-height: 100vh; /* Ensure it takes at least the full height of the viewport */
+}
+
+.modal-overlay {
+    position: fixed; /* Stays in place */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Dark transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensures it appears on top */
+    opacity: 0; /* Start invisible */
+    transition: opacity 0.5s ease-in-out;
+  }
+
+  .modal-overlay.fade-in {
+    opacity: 1;
+  }
+/* Film details modal */
+.film-details-box {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 500px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    position: relative;
+    transform: translateY(20px); /* Start slightly below */
+    opacity: 0; /* Start invisible */
+    transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+  }
+.film-details-box.slide-up {
+  transform: translateY(0);
+  opacity: 1;
+}
+  .close-button {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #333;
+  }
+  
+  .close-button:hover {
+    color: red;
+  }
+
+  .film-list {
+    margin-top: 20px;
+    padding: 0;
+    list-style-type: none;  /* Removes bullet points */
+  }
+  
+  .film-item {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;  /* Adds a separating line between items */
+  }
+  
+  .film-item:last-child {
+    border-bottom: none;  /* Removes the border from the last item */
+  }
+  

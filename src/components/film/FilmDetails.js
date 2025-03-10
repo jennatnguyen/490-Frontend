@@ -1,8 +1,13 @@
 import { useState, useEffect } from "react";
 import './FilmTable.css';
+import axios from "axios";
+import { TextField, Button, Card, CardContent, Typography, Box } from "@mui/material";
+
 
 const FilmDetails = ({ filmId, onClose }) => {
   const [filmDetails, setFilmDetails] = useState(null);
+  const [customerId, setCustomerId] = useState("");
+
   const [isVisible, setIsVisible] = useState(false);
 
   // Fetch film details when filmId changes
@@ -24,6 +29,19 @@ const FilmDetails = ({ filmId, onClose }) => {
   // Show a message if no film details are loaded
   if (!filmDetails) return;
 
+  const rentFilm = async () => {
+    try {
+      const response = await axios.post("/rentFilm", {
+        customer_id: customerId,
+        film_id: filmId,
+      });
+      alert(response.data.message);
+    } catch (error) {
+      alert(error.response?.data?.error || "An error occurred");
+      console.error("Error renting film:", error);
+    }
+  }
+
   return (
     <div className={`modal-overlay ${isVisible ? "fade-in" : ""}`}>
     <div className={`film-details-box ${isVisible ? "slide-up" : ""}`}>
@@ -37,6 +55,35 @@ const FilmDetails = ({ filmId, onClose }) => {
       <p><strong>Length:</strong> {filmDetails.length}</p>
       <p><strong>Replacement Cost:</strong> {filmDetails.replacement_cost}</p>
       <p><strong>Duration:</strong> {filmDetails.duration}</p>
+      <Card variant="outlined" 
+      sx={{ 
+        maxWidth: 500, 
+        margin: "20px auto", 
+        textAlign: "center", 
+        borderColor: 'black', // Set the outline (border) color to black
+        borderWidth: 2 // Optional: You can set the thickness of the border
+      }}
+      >
+      <CardContent>
+        <Typography variant="h6" gutterBottom sx={{fontWeight: 'bold'}}>
+          Rent This Film
+        </Typography>
+        <Box component="form" noValidate autoComplete="off">
+          <TextField
+            label="Customer ID"
+            variant="outlined"
+            fullWidth
+            value={customerId}
+            onChange={(e) => setCustomerId(e.target.value)}
+            sx={{ marginBottom: 2 }}
+          />
+          <Button variant="contained" fullWidth onClick={rentFilm}
+          sx={{ backgroundColor: "#A02071", color: "white", "&:hover": { backgroundColor: "#D14572" } }}>
+            Rent Film
+          </Button>
+        </Box>
+      </CardContent>
+    </Card>
     </div>
     </div>
   );

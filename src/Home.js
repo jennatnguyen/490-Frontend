@@ -1,4 +1,3 @@
-// src/Home.js
 import React, { useState } from 'react';
 import TopRentedFilms from './components/home/TopRentedFilms';
 import FilmDetails from './components/home/FilmDetails';
@@ -11,16 +10,20 @@ function Home() {
 
   return (
     <div>
-      <h1>Movie Rental Dashboard</h1>
-
-      <div style={{ marginTop: "70px" }}>
+      <div style={{ paddingTop: '10px', paddingBottom: '10px' }}>
+      <div className="section"> {/* Custom background for this section */}
         <TopRentedFilms onFilmClick={setSelectedFilmId} />
         {selectedFilmId && <FilmDetails filmId={selectedFilmId} onClose={() => setSelectedFilmId(null)} />}
       </div>
+      </div>
 
-      <div style={{ marginTop: "90px" }}></div>
-      <TopActors onActorClick={setSelectedActorId} />
-      {selectedActorId && <ActorDetails actorId={selectedActorId} onClose={() => setSelectedActorId(null)} />}
+     
+      <div style={{paddingTop: '10px'}}>
+      <div className="section"> {/* Custom background for this section */}
+        <TopActors onActorClick={setSelectedActorId} />
+        {selectedActorId && <ActorDetails actorId={selectedActorId} onClose={() => setSelectedActorId(null)} />}
+      </div>
+      </div>
     </div>
   );
 }

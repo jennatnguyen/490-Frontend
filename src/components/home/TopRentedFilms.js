@@ -18,7 +18,7 @@ const TopRentedFilms = ({ onFilmClick }) => {
 
     return(
         <div>
-        <h2>Top 5 Films</h2>
+        <h1>Top 5 Films</h1>
         <div className="films-container">
             {films.map((film,index) => (
                 <div 

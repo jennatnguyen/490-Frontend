@@ -18,7 +18,7 @@ const TopActors = ({ onActorClick }) => {
 
     return(
         <div>
-        <h2>Top 5 Actors</h2>
+        <h1>Top 5 Actors</h1>
         <div className="films-container">
             {actors.map((actor,index) => (
                 <div 

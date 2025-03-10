@@ -69,7 +69,7 @@ const FilmsTable = ( {onFilmClick} ) => {
     <div style={{ textAlign: 'center' }}>
       <h1>Films</h1>
 
-      <Box className="box">
+      <Box className="box" sx={{ marginBottom: '20px' }}>
         <TextField 
         width = "40%"
         label="Search Films"

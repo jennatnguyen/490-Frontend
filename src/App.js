@@ -4,7 +4,7 @@ import { Navbar } from './components/navbar/navbar.js';
 import Home from './Home';
 import Customers from './customers.js';
 import Films from './films.js';
-import "./App.css"; // Keep the global styles
+import "./App.css"; 
 
 function App() {
   return (

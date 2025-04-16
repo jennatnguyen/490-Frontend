@@ -24,7 +24,7 @@ Customer Page:
 ## Engineering Details 🛠️
 - REACT js for the framework
 - Material UI for the user interface
-- Backend: https://github.com/jennatnguyen/Sakila-Backend
+- Backend: [https://github.com/jennatnguyen/Sakila-Backend](https://github.com/jennatnguyen/Sakila-Backend)
   
 ## Screenshots 📷
 ![Screenshot 2025-04-16 141210](https://github.com/user-attachments/assets/a082cada-f995-4fcf-86c6-93ad27f1b2e0)
